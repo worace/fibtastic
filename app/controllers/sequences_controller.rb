@@ -2,7 +2,7 @@ class SequencesController < ApplicationController
   before_action :validate_params, only: [:create]
 
   def create
-    @seq = FibSequence.new(params["sequence_length"].to_i)
+    SequenceMailer.sequence_email(params["email"], params["sequence_length"].to_i).deliver_now
   end
 
   def validate_params

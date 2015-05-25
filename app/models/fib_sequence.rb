@@ -16,11 +16,11 @@ class FibSequence
     end
   end
 
-  def sequence(quantity = q)
+  def sequence(q = quantity)
     series = [0,1]
-    (quantity - 2).times do
+    (q - 2).times do
       series << series[-2] + series[-1]
     end
-    series.take(quantity)
+    series.take(q)
   end
 end
