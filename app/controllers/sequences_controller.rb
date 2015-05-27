@@ -2,7 +2,7 @@ class SequencesController < ApplicationController
   before_action :validate_params, only: [:create]
 
   def create
-    SequenceMailer.sequence_email(params["email"], params["sequence_length"].to_i).deliver_now
+    SequenceEmailWorker.perform_async(params["email"], params["sequence_length"].to_i)
   end
 
   def validate_params
