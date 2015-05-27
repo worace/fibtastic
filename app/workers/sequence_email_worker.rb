@@ -1,0 +1,2 @@
+class SequenceEmailWorker
+end
